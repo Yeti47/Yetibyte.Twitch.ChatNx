@@ -30,6 +30,8 @@ class NxbtSwitchConnector(SwitchConnector):
             self._logger.error(f'NxbtSwitchConnector: Failed to initialized NXBT. Details: {ex}')
             return False
 
+        self._is_initialized = True
+
         self._logger.info(f'NxbtSwitchConnector: Initialization successful.')
 
         return True
