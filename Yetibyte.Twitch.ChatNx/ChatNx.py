@@ -1,5 +1,5 @@
 import asyncio
-import .ChatNx
+import ChatNx
 
 async def main():
 
