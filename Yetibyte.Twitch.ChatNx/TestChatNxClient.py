@@ -67,6 +67,8 @@ async def main():
 
     await chat_nx.connect_to_switch()
 
+    input("Hit enter to start the client.")
+
     print("TEST: Running ChatNx client...\r\n")
 
     await chat_nx.run()
