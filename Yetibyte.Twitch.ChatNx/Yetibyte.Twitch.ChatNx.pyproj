@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3db61397-77e4-4fff-b0fe-c526d4acb2e8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ChatNx\Test\TestChatNxClient.py</StartupFile>
+    <StartupFile>TestChatNxClient.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -117,16 +117,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ChatNx.py" />
-    <Compile Include="ChatNx\Test\TestChatNxClient.py">
+    <Compile Include="TestChatNxClient.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChatNx\Test\TestQueueReceiver.py">
+    <Compile Include="TestQueueReceiver.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChatNx\Test\TestTwitchIrcClient.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ChatNx\Test\__init__.py">
+    <Compile Include="TestTwitchIrcClient.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -135,11 +132,9 @@
     <Folder Include="ChatNx\Configuration\" />
     <Folder Include="ChatNx\Irc\" />
     <Folder Include="ChatNx\QueueReceiver\" />
-    <Folder Include="ChatNx\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="launch.json" />
-    <Content Include="ChatNx\Test\launch.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
