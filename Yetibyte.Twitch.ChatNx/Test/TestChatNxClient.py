@@ -1,14 +1,14 @@
-from ChatNx.SwitchConnector import *
-from ChatNx.MockSwitchConnector import *
-from ChatNx.NxbtSwitchConnector import *
-from ChatNx.ChatNxClient import *
-from ChatNx.Configuration.ChatNxConfig import *
-from ChatNx.Configuration.ChatNxConfigManager import *
-from ChatNx.Irc.IrcClient import *
-from ChatNx.Irc.MockIrcClient import *
-from ChatNx.Irc.TwitchIrcClient import *
-from ChatNx.QueueReceiver.ChatNxQueueReceiverClientBase import *
-from ChatNx.QueueReceiver.ChatNxQueueReceiverClient import *
+from ..ChatNx.SwitchConnector import *
+from ..ChatNx.MockSwitchConnector import *
+from ..ChatNx.NxbtSwitchConnector import *
+from ..ChatNx.ChatNxClient import *
+from ..ChatNx.Configuration.ChatNxConfig import *
+from ..ChatNx.Configuration.ChatNxConfigManager import *
+from ..ChatNx.Irc.IrcClient import *
+from ..ChatNx.Irc.MockIrcClient import *
+from ..ChatNx.Irc.TwitchIrcClient import *
+from ..ChatNx.QueueReceiver.ChatNxQueueReceiverClientBase import *
+from ..ChatNx.QueueReceiver.ChatNxQueueReceiverClient import *
 
 import asyncio
 import logging

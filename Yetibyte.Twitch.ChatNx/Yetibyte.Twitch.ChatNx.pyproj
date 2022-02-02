@@ -126,6 +126,9 @@
     <Compile Include="Test\TestTwitchIrcClient.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Test\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ChatNx\" />
