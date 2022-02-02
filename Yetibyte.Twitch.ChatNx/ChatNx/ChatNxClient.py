@@ -11,6 +11,7 @@ from .Configuration.ChatNxCommandSetup import *
 from .Configuration.ChatNxCooldownSetup import *
 from .Configuration.ChatNxDebugSettings import *
 from .Configuration.ChatNxMacro import *
+from .Configuration.MacroInput import *
 from .Configuration.QueueReceiverSettings import *
 from .Configuration.TwitchConnectionSettings import *
 from .CommandProcessor import *
@@ -306,6 +307,15 @@ class ChatNxClient(IrcClientListener):
 
             if not is_controller_connected:
                 raise RuntimeError(f"Could not connect controller {controller_id}.")
+
+            self._logger.info(f'ChatNxClient: Executing test macro for controller {controller_id}.')
+
+            macro_id = await self._switch_connector.macro(controller_id, ChatNxMacro(instructions=[ MacroInput('A', 0.7), MacroInput('', 0.4), MacroInput('A', 0.7), MacroInput('', 0.4) ], controller_index=controller_id), block=True)
+
+            if macro_id:
+                self._logger.info(f'ChatNxClient: Test macro executed successfully.')
+            else:
+                self._logger.error(f'ChatNxClient: Test macro could not be executed.')
 
         await asyncio.sleep(0.5)
 
