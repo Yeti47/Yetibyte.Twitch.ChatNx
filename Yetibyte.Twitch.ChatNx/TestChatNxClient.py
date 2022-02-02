@@ -12,6 +12,7 @@ from ChatNx.QueueReceiver.ChatNxQueueReceiverClient import *
 
 import asyncio
 import logging
+import os
 
 _chat_nx_client_: ChatNxClient = None
 
@@ -77,7 +78,8 @@ async def main():
 
 # We need to add the event loop policy WindowsSelectorEventLoopPolicy due to an issue on Windows
 # which causes tasks to not be properly closed before the loop ends
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+if os.name.lower() == 'nt':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 if __name__ == '__main__':
     try:
