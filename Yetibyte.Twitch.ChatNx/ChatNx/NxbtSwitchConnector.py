@@ -65,7 +65,9 @@ class NxbtSwitchConnector(SwitchConnector):
         return True
 
     async def _wait_for_connection(self, controller_index)->None:
-        self._nxbt.wait_for_connection(controller_index)
+        #self._nxbt.wait_for_connection(controller_index)
+        while not self.is_controller_connected(controller_index):
+            await asyncio.sleep(0.1)
 
     def create_controller(self, controller_type, adapter_path=None, colour_body=None, colour_buttons=None, reconnect_address=None)->int:
         self._logger.info(f'NxbtSwitchConnector: Creating controller...')
