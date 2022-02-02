@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3db61397-77e4-4fff-b0fe-c526d4acb2e8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Test\TestTwitchIrcClient.py</StartupFile>
+    <StartupFile>Test\TestChatNxClient.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,12 @@
   <ItemGroup>
     <Compile Include="ChatNx\ChatNxClient.py" />
     <Compile Include="ChatNx\ChatNxCommand.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChatNx\CommandProcessingResult.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChatNx\CommandProcessor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ChatNx\Configuration\ChatNxCommandProfile.py">
@@ -111,6 +117,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ChatNx.py" />
+    <Compile Include="Test\TestChatNxClient.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Test\TestQueueReceiver.py">
       <SubType>Code</SubType>
     </Compile>

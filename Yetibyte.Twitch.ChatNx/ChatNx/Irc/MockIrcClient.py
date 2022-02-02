@@ -35,8 +35,8 @@ class MockIrcClient(IrcClient):
         'This is a really nice stream!'
     ]
 
-    def __init__(self, command_prefix: str, connection_settings: TwitchConnectionSettings, command_profile: ChatNxCommandProfile, logger: Logger):
-        self._command_prefix = command_prefix
+    def __init__(self, connection_settings: TwitchConnectionSettings, command_profile: ChatNxCommandProfile, logger: Logger):
+        self._command_prefix = command_profile.prefix
         self._connection_settings = connection_settings
         self._command_profile = command_profile
         self._logger = logger

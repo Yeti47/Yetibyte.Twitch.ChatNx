@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from .Configuration.ChatNxMacro import *
 import asyncio
+from typing import Callable
 
 class ControllerTypes(Enum):
     JOYCON_L = 1
@@ -52,7 +53,7 @@ class SwitchConnector(ABC):
         pass
 
     @abstractmethod
-    async def macro(self, controller_index, macro: ChatNxMacro, block=True, callback: Callable[str, None] = None)->str:
+    async def macro(self, controller_index, macro: ChatNxMacro, block=False, callback: Callable[[str], None] = None)->str:
         pass
 
     @abstractmethod
@@ -70,7 +71,7 @@ class SwitchConnector(ABC):
     def is_controller_connected(self, controller_index)->bool:
         state = self.get_state()
 
-        return controller_index in state and state[controller_index]["state"] != "connected"
+        return controller_index in state and state[controller_index]["state"] == "connected"
 
 
 

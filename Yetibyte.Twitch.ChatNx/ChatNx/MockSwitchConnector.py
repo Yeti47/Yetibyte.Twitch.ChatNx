@@ -74,7 +74,7 @@ class MockSwitchConnector(SwitchConnector):
         success = False
 
         if self.has_controller(controller_index):
-            asyncio.sleep(MockSwitchConnector.CONNECTION_TIME)
+            await asyncio.sleep(MockSwitchConnector.CONNECTION_TIME)
             self._state[controller_index]["state"] = MockSwitchConnector.CONTROLLER_STATE_CONNECTED
             self._state[controller_index]["last_connection"] = MockSwitchConnector.MOCK_SWITCH_ADDRESS
             self._logger.info('MockSwitchConnector: Controller connected.')
@@ -108,7 +108,7 @@ class MockSwitchConnector(SwitchConnector):
         else:
             self._logger.error(f'MockSwitchConnector: Cannot clear macros. No controller with index {controller_index} found.')
 
-    async def macro(self, controller_index, macro: ChatNxMacro, block=False, callback: Callable[str, None] = None)->str:
+    async def macro(self, controller_index, macro: ChatNxMacro, block=False, callback: Callable[[str], None] = None)->str:
         self._logger.info(f'MockSwitchConnector: Trying to execute macro {macro} for controller at index {controller_index} (block: {block}).')
 
         macro_id = None

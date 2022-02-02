@@ -74,8 +74,10 @@ class ChatNxConfigManager(object):
         profile = ChatNxCommandProfile('ExampleProfile')
 
         macro_jump = ChatNxMacro([ MacroInput('A', 0.5) ])
+        macro_jump_thrice = ChatNxMacro([ MacroInput('A', 0.5), MacroInput('', 0.5) , MacroInput('A', 0.5), MacroInput('', 0.5), MacroInput('A', 0.5), MacroInput('', 0.5) ])
 
         test_command_jump = ChatNxCommandSetup('jump', macro_jump, arguments=['high','low'], cooldown_group='JumpCooldown')
+        test_command_jump_thrice = ChatNxCommandSetup('jump3x', macro_jump_thrice, arguments=[], cooldown_group='JumpCooldown')
 
         cooldown_jump = ChatNxCooldownSetup("JumpCooldown", 3)
         cooldown_jump.set_time(PermissionLevel.ANY, 15)
@@ -83,6 +85,7 @@ class ChatNxConfigManager(object):
         cooldown_jump.set_time(PermissionLevel.MOD, 5)
 
         profile.commands.append(test_command_jump)
+        profile.commands.append(test_command_jump_thrice)
         profile.cooldown_groups.append(cooldown_jump)
 
         return profile

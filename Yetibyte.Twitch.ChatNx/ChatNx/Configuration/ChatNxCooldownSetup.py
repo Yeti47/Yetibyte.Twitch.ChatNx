@@ -31,8 +31,8 @@ class ChatNxCooldownSetup(object):
 
     def get_time(self, level: PermissionLevel)-> Optional[int]:
         # Find the time with the next lowest key value (OWN => MOD => SUB => ANY)
-        sorted_keys = sorted(self._times.keys(), lambda x:x.get_int_value(), reverse=True)
-        lower_keys = [k.get_int_value() for k in sorted_keys if k.get_int_value() <= level.get_int_value()]
+        sorted_keys = sorted(self._times.keys(), key=(lambda x:x.get_int_value()), reverse=True)
+        lower_keys = [k for k in sorted_keys if k.get_int_value() <= level.get_int_value()]
 
         return self._times[lower_keys[0]] if lower_keys else None
 
