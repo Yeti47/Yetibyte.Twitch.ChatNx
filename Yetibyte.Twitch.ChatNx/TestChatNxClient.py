@@ -28,6 +28,8 @@ async def main():
     bot_user = input("Enter Bot User Name:")
     token = input("Enter Auth Token:")
 
+    queue_rec_address = input('Enter Queue Receiver Address:')
+
     config_manager = ChatNxConfigManager()
 
     config = config_manager.load_config()
@@ -50,7 +52,7 @@ async def main():
         config.command_profiles[0], 
         switch_connector,
         irc_client,
-        ChatNxQueueReceiverClient('127.0.0.1', 4769, logger),
+        ChatNxQueueReceiverClient(queue_rec_address or '127.0.0.1', 4769, logger),
         logger)
 
     _chat_nx_client_ = chat_nx
