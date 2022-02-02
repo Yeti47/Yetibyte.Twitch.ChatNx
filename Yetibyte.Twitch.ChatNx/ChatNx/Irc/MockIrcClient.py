@@ -3,6 +3,7 @@ from .IrcClientListener import *
 from .IrcMember import *
 from .IrcMessage import *
 from ..Configuration import TwitchConnectionSettings, ChatNxCommandProfile
+
 import logging
 from logging import Logger
 import asyncio

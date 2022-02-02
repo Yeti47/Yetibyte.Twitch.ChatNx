@@ -1,7 +1,8 @@
+from .MacroInput import *
+
 import json
 from json import JSONEncoder, JSONDecoder
 from json.decoder import WHITESPACE
-from .MacroInput import *
 
 class ChatNxMacro(object):
     """A set of instructions executable by NXBT."""

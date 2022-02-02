@@ -63,9 +63,10 @@ async def main():
         await irc_client.disconnect()
 
 
-# We need to add the event loop policy WindowsSelectorEventLoopPolicy due to an issue on Windows
-# which causes tasks to not be properly closed before the loop ends
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-asyncio.run(main())
+if __name__ == '__main__':
+    # We need to add the event loop policy WindowsSelectorEventLoopPolicy due to an issue on Windows
+    # which causes tasks to not be properly closed before the loop ends
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    asyncio.run(main())
 
 

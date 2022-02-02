@@ -65,5 +65,7 @@ async def main():
 
     print("Test completed!")
 
-    
-asyncio.run(main())
+
+
+if __name__ == '__main__':
+    asyncio.run(main())

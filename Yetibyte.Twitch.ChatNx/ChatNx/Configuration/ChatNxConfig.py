@@ -1,11 +1,12 @@
-import json
-from json import JSONEncoder, JSONDecoder
-from json.decoder import WHITESPACE
 from .ChatNxDebugSettings import *
 from .QueueReceiverSettings import *
 from .TwitchConnectionSettings import *
 from .ChatNxCommandProfile import *
+
 from typing import Optional
+import json
+from json import JSONEncoder, JSONDecoder
+from json.decoder import WHITESPACE
 
 class ChatNxConfig(object):
     """Describes a set of configuration settings for ChatNx.""" 

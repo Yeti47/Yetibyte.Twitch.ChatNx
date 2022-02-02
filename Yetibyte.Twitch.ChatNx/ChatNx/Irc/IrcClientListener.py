@@ -1,5 +1,6 @@
-from abc import ABC, abstractmethod
 from .IrcMessage import *
+
+from abc import ABC, abstractmethod
 
 class IrcClientListener(ABC):
 

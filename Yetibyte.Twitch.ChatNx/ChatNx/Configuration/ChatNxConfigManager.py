@@ -1,12 +1,13 @@
-import os
-import json
-from os import listdir
 from .ChatNxConfig import *
 from .TwitchConnectionSettings import *
 from .QueueReceiverSettings import *
 from .ChatNxDebugSettings import *
 from .ChatNxCommandProfile import *
 from .PermissionLevel import *
+
+import os
+import json
+from os import listdir
 
 class ChatNxConfigManager(object):
     """Encapsulates logic for loading, saving and managing ChatNx configuration settings."""

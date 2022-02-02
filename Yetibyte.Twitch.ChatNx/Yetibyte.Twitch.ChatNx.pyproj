@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3db61397-77e4-4fff-b0fe-c526d4acb2e8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Test\TestChatNxClient.py</StartupFile>
+    <StartupFile>ChatNx.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

@@ -1,5 +1,6 @@
 from .PermissionLevel import *
 from .ChatNxMacro import *
+
 import json
 from json import JSONEncoder, JSONDecoder
 from json.decoder import WHITESPACE

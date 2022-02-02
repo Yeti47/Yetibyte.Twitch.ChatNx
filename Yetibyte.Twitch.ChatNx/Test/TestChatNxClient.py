@@ -67,8 +67,6 @@ async def main():
 
     print("TEST: ChatNx client running. Send Keyboard Interrupt to quit (or close console).\r\n")
     
-    #pending = asyncio.all_tasks()
-
     while True:
         await asyncio.sleep(0.001)
 
@@ -77,13 +75,14 @@ async def main():
 # which causes tasks to not be properly closed before the loop ends
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-try:
-    asyncio.run(main())
-except KeyboardInterrupt as key_ex:
+if __name__ == '__main__':
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt as key_ex:
     
-    if _chat_nx_client_:
-        print("Stopping ChatNx Client...!\r\n")
-        _chat_nx_client_.stop()
-        print("Client stopped.\r\n")
+        if _chat_nx_client_:
+            print("Stopping ChatNx Client...!\r\n")
+            _chat_nx_client_.stop()
+            print("Client stopped.\r\n")
     
-    print("Goddbye!\r\n")
+        print("Goddbye!\r\n")

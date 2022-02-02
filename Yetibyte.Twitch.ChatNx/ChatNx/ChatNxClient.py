@@ -41,7 +41,6 @@ class ChatNxClient(IrcClientListener):
         self._is_connected_to_switch = False
         self._command_processors: list[CommandProcessor] = []
         self._is_running = False
-        self._queue_lock = False
         self._irc_client.add_listener(self)
 
     @property
@@ -72,6 +71,14 @@ class ChatNxClient(IrcClientListener):
     def has_queue_receiver_client(self)->bool:
         return self._queue_receiver_client and True
 
+    @property
+    def max_queue_size(self)->int:
+        return self._command_profile.max_queue_size
+
+    @property
+    def is_queue_full(self)->bool:
+        return len(self._command_queue) >= self.max_queue_size
+
     def connect_to_queue_receiver(self)->bool:
 
         if not self._queue_receiver_client:
@@ -99,14 +106,14 @@ class ChatNxClient(IrcClientListener):
             self._logger.warn(f'ChatNxClient: Command {command.id} already in queue. Will not enqueue again.')
             return
 
-        #while self._queue_lock:
-        #    pass
-
-        self._queue_lock = True
+        if self.is_queue_full:
+            self._logger.info(f'ChatNxClient: Cannot enqueue any more commands. Max queue capacity of {self.max_queue_size} reached.')
+            send_queue_full_msg_task = asyncio.create_task(self._irc_client.send_message(f'The command queue is full. Please wait before submitting any more commands.'))
+            return
 
         self._command_queue.append(command)
 
-        self._logger.info(f'ChatNxClient: Command {command.id} enqueued for execution.')
+        self._logger.info(f'ChatNxClient: Enqueued command {command.id}.')
 
         if self.is_connected_to_queue_receiver:
             self._queue_receiver_client.enqueue(command)
@@ -128,8 +135,6 @@ class ChatNxClient(IrcClientListener):
             macro, 
             block=False, 
             callback=(lambda mid: self._on_macro_finished(mid, current_command)))
-
-        self._queue_lock = False
 
     async def _synchronize_queue(self, current_command)->None:
 

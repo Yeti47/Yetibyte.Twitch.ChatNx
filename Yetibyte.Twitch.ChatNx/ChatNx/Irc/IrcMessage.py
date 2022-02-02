@@ -1,4 +1,5 @@
 from .IrcMember import *
+
 from datetime import datetime
 
 class IrcMessageMeta(type):

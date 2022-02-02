@@ -4,6 +4,7 @@ from .IrcMessage import *
 from .IrcClientListener import *
 from ..Configuration.TwitchConnectionSettings import *
 from ..Configuration.ChatNxCommandProfile import *
+
 import logging
 import twitchio
 import asyncio

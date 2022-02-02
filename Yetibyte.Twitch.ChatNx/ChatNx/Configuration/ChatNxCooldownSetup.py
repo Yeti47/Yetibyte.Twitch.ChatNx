@@ -1,9 +1,10 @@
+from .PermissionLevel import *
+
 import json
 from json import JSONEncoder, JSONDecoder
 from json.decoder import WHITESPACE
 from typing import Optional
 
-from .PermissionLevel import *
 
 class ChatNxCooldownSetup(object):
     """Describes the configuration of a ChatNx command cooldown."""

@@ -3,6 +3,7 @@ from .ChatNxMacro import *
 from .ChatNxCommandSetup import *
 from .ChatNxCooldownSetup import *
 from .ChatNxCommandSetup import *
+
 import json
 from json import JSONEncoder, JSONDecoder
 from json.decoder import WHITESPACE
@@ -10,12 +11,15 @@ from json.decoder import WHITESPACE
 class ChatNxCommandProfile(object):
     """Encapsulates the configuration of a set of ChatNx commands and cooldowns."""
 
+    DEFAULT_MAX_QUEUE_SIZE = 10
+
     def __init__(self, name: str, commands = [], cooldown_groups = [], prefix = '!', controllers = ['PRO_CONTROLLER']):
         self._name = name
         self.commands = commands
         self.cooldown_groups = cooldown_groups
         self.prefix = prefix
         self.controllers = controllers
+        self.max_queue_size = ChatNxCommandProfile.DEFAULT_MAX_QUEUE_SIZE
 
     @property
     def name(self)->str:
@@ -61,7 +65,8 @@ class ChatNxCommandProfileJsonEncoder(JSONEncoder):
                 "commands": encoded_commands, 
                 "cooldown_groups": encoded_cooldowns, 
                 "prefix": object.prefix, 
-                "controllers": object.controllers }
+                "controllers": object.controllers,
+                "max_queue_size": object.max_queue_size }
 
 class ChatNxCommandProfileJsonDecoder(JSONDecoder):
     def __init__(self, *args, **kwargs):
@@ -79,6 +84,7 @@ class ChatNxCommandProfileJsonDecoder(JSONDecoder):
         commands = []
         cooldown_groups = []
         controllers = [ 'PRO_CONTROLLER' ]
+        max_queue_size = ChatNxCommandProfile.DEFAULT_MAX_QUEUE_SIZE
 
         if 'name' in dct:
             name = dct['name']
@@ -88,6 +94,9 @@ class ChatNxCommandProfileJsonDecoder(JSONDecoder):
 
         if 'controllers' in dct:
             controllers = dct['controllers']
+
+        if 'max_queue_size' in dct:
+            max_queue_size = dct['max_queue_size']
         
         if 'commands' in dct:
             encoded_commands = dct['commands']

@@ -7,6 +7,7 @@ __version__ = "0.1"
 from .Configuration import *
 from .Irc import *
 from .QueueReceiver import *
+
 from .ChatNxClient import *
 from .ChatNxCommand import *
 from .CommandProcessor import *
