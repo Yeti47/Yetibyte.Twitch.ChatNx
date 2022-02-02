@@ -53,7 +53,7 @@ class NxbtSwitchConnector(SwitchConnector):
 
         try:
             await asyncio.wait_for(self._wait_for_connection(controller_index), timeout=self._connection_timeout)
-        except asyncio.TimeOutError as tex:
+        except asyncio.TimeoutError as tex:
             self._logger.error(f'NxbtSwitchConnector: Connection timeout ({self._connection_timeout})!')
             return False
         except Exception as ex:
