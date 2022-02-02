@@ -94,4 +94,4 @@ if __name__ == '__main__':
             _chat_nx_client_.stop()
             print("Client stopped.\r\n")
     
-        print("Goddbye!\r\n")
+        print("Goodbye!\r\n")
