@@ -2,8 +2,11 @@ from .SwitchConnector import *
 from .Configuration.ChatNxMacro import *
 
 import logging
-import nxbt
+import os
 import asyncio
+
+if os.name.lower() != 'nt':
+    import nxbt
 
 class NxbtSwitchConnector(SwitchConnector):
     """Implementation of a SwitchConnector that uses NXBT to communicate with a Nintendo Switch console."""
