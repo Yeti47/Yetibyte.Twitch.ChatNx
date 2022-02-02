@@ -137,7 +137,7 @@ class NxbtSwitchConnector(SwitchConnector):
                 if block:
                     callback(macro_id)
                 else:
-                    callback_task = asyncio.create_task(_wait_for_macro_completion(callback, macro_id, controller_index))
+                    callback_task = asyncio.create_task(self._wait_for_macro_completion(callback, macro_id, controller_index))
 
 
         except Exception as ex:
