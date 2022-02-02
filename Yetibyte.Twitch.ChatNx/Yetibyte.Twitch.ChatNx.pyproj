@@ -117,16 +117,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ChatNx.py" />
-    <Compile Include="Test\TestChatNxClient.py">
+    <Compile Include="ChatNx\Test\TestChatNxClient.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Test\TestQueueReceiver.py">
+    <Compile Include="ChatNx\Test\TestQueueReceiver.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Test\TestTwitchIrcClient.py">
+    <Compile Include="ChatNx\Test\TestTwitchIrcClient.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Test\__init__.py">
+    <Compile Include="ChatNx\Test\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -135,11 +135,11 @@
     <Folder Include="ChatNx\Configuration\" />
     <Folder Include="ChatNx\Irc\" />
     <Folder Include="ChatNx\QueueReceiver\" />
-    <Folder Include="Test\" />
+    <Folder Include="ChatNx\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="launch.json" />
-    <Content Include="Test\launch.json" />
+    <Content Include="ChatNx\Test\launch.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
