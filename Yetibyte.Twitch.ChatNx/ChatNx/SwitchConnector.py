@@ -1,6 +1,7 @@
+from .Configuration.ChatNxMacro import *
+
 from abc import ABC, abstractmethod
 from enum import Enum
-from .Configuration.ChatNxMacro import *
 import asyncio
 from typing import Callable
 

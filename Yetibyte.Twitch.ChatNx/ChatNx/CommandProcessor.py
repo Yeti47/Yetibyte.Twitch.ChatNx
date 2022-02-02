@@ -6,6 +6,7 @@ from .Irc.IrcClient import *
 from .Irc.IrcMessage import *
 from .Irc.IrcMember import *
 from .CommandProcessingResult import *
+
 import logging
 import datetime
 import typing

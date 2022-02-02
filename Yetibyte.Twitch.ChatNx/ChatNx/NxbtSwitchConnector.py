@@ -1,5 +1,6 @@
 from .SwitchConnector import *
 from .Configuration.ChatNxMacro import *
+
 import logging
 import nxbt
 import asyncio

@@ -14,6 +14,7 @@ from .Configuration.ChatNxMacro import *
 from .Configuration.QueueReceiverSettings import *
 from .Configuration.TwitchConnectionSettings import *
 from .CommandProcessor import *
+
 import logging
 import asyncio
 import os

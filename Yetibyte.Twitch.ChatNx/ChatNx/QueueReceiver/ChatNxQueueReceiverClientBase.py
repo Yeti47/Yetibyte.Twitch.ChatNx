@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
 from ..ChatNxCommand import *
 from .QueueStatus import *
+
+from abc import ABC, abstractmethod
 import asyncio
 
 class ChatNxQueueReceiverClientBase(ABC):

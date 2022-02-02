@@ -1,11 +1,12 @@
 from ..ChatNxCommand import *
 from .QueueStatus import *
 from .ChatNxQueueReceiverClientBase import *
+from .CommandQueueRequest import *
+
 import websocket
 import traceback
 import asyncio
 from logging import Logger
-from .CommandQueueRequest import *
 
 REQUEST_ACTION_ADD = "ADD"
 REQUEST_ACTION_COMPLETE = "COMPLETE"
