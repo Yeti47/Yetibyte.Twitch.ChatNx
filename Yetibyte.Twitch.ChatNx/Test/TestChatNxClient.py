@@ -1,5 +1,6 @@
 from ChatNx.SwitchConnector import *
 from ChatNx.MockSwitchConnector import *
+from ChatNx.NxbtSwitchConnector import *
 from ChatNx.ChatNxClient import *
 from ChatNx.Configuration.ChatNxConfig import *
 from ChatNx.Configuration.ChatNxConfigManager import *
@@ -31,12 +32,15 @@ async def main():
     config = config_manager.load_config()
 
     do_mock_irc = input("Mock IRC (y/n):").strip().lower() == "y"
+    do_mock_switch_connector = input('Mock Switch Connector (y/n):').strip().lower() == "y"
 
     irc_client = MockIrcClient(config.connection_settings, config.command_profiles[0], logger) \
         if do_mock_irc \
         else TwitchIrcClient(config.command_profiles[0].prefix, TwitchConnectionSettings(channel, token, bot_user), logger, loop)
 
-    switch_connector = MockSwitchConnector(logger)
+    switch_connector = MockSwitchConnector(logger) \
+        if do_mock_switch_connector \
+        else NxbtSwitchConnector(logger=logger)
     switch_connector.initialize()
 
     chat_nx = ChatNxClient(
