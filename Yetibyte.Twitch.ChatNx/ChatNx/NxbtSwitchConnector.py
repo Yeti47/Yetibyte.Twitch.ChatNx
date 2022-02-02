@@ -2,7 +2,7 @@ from .SwitchConnector import *
 from .Configuration.ChatNxMacro import *
 
 import logging
-#import nxbt
+import nxbt
 import asyncio
 
 class NxbtSwitchConnector(SwitchConnector):

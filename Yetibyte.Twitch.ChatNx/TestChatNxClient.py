@@ -42,6 +42,7 @@ async def main():
     switch_connector = MockSwitchConnector(logger) \
         if do_mock_switch_connector \
         else NxbtSwitchConnector(logger=logger)
+
     switch_connector.initialize()
 
     chat_nx = ChatNxClient(
