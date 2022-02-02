@@ -99,7 +99,7 @@ class NxbtSwitchConnector(SwitchConnector):
         return controller_id
 
     def get_state(self)->dict:
-        return self._nxbt.get_state() if self._nxbt else {}
+        return self._nxbt.state if self._nxbt else {}
     
     def get_available_adapters(self)->list[str]:
         return self._nxbt.get_available_adapters() if self._nxbt else []
